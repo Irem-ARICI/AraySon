@@ -1,0 +1,184 @@
+﻿@using AraySon.Dtos
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model HomeIndexViewModel
+
+<style>
+    body {
+        background-color: #FDE1E1;
+    }
+</style>
+
+<div class="card">
+    <div class="card-header">
+        Filtreler
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Kategori</label>
+
+                    @Html.DropDownList("kategoriId", new SelectList(Model.Kategoriler, "Id", "Ad", Model.KategoriId), new { @class = "form-control" })
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Tür</label>
+
+                    @Html.DropDownList("dersId", new SelectList(Model.Dersler, "Id", "Ad", Model.DersId), new { @class = "form-control" })
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success my-3" style="background-color: #5D1414; border-color: #5D1414;">
+                Filtrele
+            </button>
+        }
+    </div>
+</div>
+
+<!-- First card-group with different content -->
+<div class="card-group">
+    @foreach (var urun in Model.Urunler.Take(3))
+    {
+        <div class="card">
+            <img src="@urun.ImageUrl" class="card-img-top " style="height:100px;width:100px;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@urun.Ad</h5>
+                <p class="card-text">@urun.DersAdi - @urun.KategoriAdi</p>
+                <a href="@urun.LinkUrl" target="_blank" class="btn btn-primary my-2" style="background-color: #5D1414; border-color: #5D1414;">Link</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">@urun.Fiyat TL</small>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Second card-group with different content -->
+<div class="card-group">
+    @foreach (var urun in Model.Urunler.Skip(3).Take(3))
+    {
+        <div class="card">
+            <img src="@urun.ImageUrl" class="card-img-top " style="height:100px;width:100px;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@urun.Ad</h5>
+                <p class="card-text">@urun.DersAdi - @urun.KategoriAdi</p>
+                <a href="@urun.LinkUrl" target="_blank" class="btn btn-primary my-2" style="background-color: #5D1414; border-color: #5D1414;">Link</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">@urun.Fiyat TL</small>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Third card-group with different content -->
+<div class="card-group">
+    @foreach (var urun in Model.Urunler.Skip(6).Take(3))
+    {
+        <div class="card">
+            <img src="@urun.ImageUrl" class="card-img-top " style="height:100px;width:100px;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@urun.Ad</h5>
+                <p class="card-text">@urun.DersAdi - @urun.KategoriAdi</p>
+                <a href="@urun.LinkUrl" target="_blank" class="btn btn-primary my-2" style="background-color: #5D1414; border-color: #5D1414;">Link</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">@urun.Fiyat TL</small>
+            </div>
+        </div>
+    }
+</div>
+
+
+<div class="card-group">
+    @foreach (var urun in Model.Urunler.Skip(9).Take(3))
+    {
+        <div class="card">
+            <img src="@urun.ImageUrl" class="card-img-top " style="height:100px;width:100px;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@urun.Ad</h5>
+                <p class="card-text">@urun.DersAdi - @urun.KategoriAdi</p>
+                <a href="@urun.LinkUrl" target="_blank" class="btn btn-primary my-2" style="background-color: #5D1414; border-color: #5D1414;">Link</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">@urun.Fiyat TL</small>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="card-group">
+    @foreach (var urun in Model.Urunler.Skip(12).Take(3))
+    {
+        <div class="card">
+            <img src="@urun.ImageUrl" class="card-img-top " style="height:100px;width:100px;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@urun.Ad</h5>
+                <p class="card-text">@urun.DersAdi - @urun.KategoriAdi</p>
+                <a href="@urun.LinkUrl" target="_blank" class="btn btn-primary my-2" style="background-color: #5D1414; border-color: #5D1414;">Link</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">@urun.Fiyat TL</small>           
+            </div>
+        </div>
+    }
+</div>
+
+<div class="card-group">
+    @foreach (var urun in Model.Urunler.Skip(15).Take(3))
+    {
+        <div class="card">
+            <img src="@urun.ImageUrl" class="card-img-top " style="height:100px;width:100px;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@urun.Ad</h5>
+                <p class="card-text">@urun.DersAdi - @urun.KategoriAdi</p>
+                <a href="@urun.LinkUrl" target="_blank" class="btn btn-primary my-2" style="background-color: #5D1414; border-color: #5D1414;">Link</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">@urun.Fiyat TL</small>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="card-group">
+    @foreach (var urun in Model.Urunler.Skip(18).Take(3))
+    {
+        <div class="card">
+            <img src="@urun.ImageUrl" class="card-img-top " style="height:100px;width:100px;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@urun.Ad</h5>
+                <p class="card-text">@urun.DersAdi - @urun.KategoriAdi</p>
+                <a href="@urun.LinkUrl" target="_blank" class="btn btn-primary my-2" style="background-color: #5D1414; border-color: #5D1414;">Link</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">@urun.Fiyat TL</small>
+
+            </div>
+        </div>
+    }
+</div>
+
+
+
+<div class="card-group">
+    @foreach (var urun in Model.Urunler.Skip(21).Take(3))
+    {
+        <div class="card">
+            <img src="@urun.ImageUrl" class="card-img-top " style="height:100px;width:100px;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@urun.Ad</h5>
+                <p class="card-text">@urun.DersAdi - @urun.KategoriAdi</p>
+                <a href="@urun.LinkUrl" target="_blank" class="btn btn-primary my-2" style="background-color: #5D1414; border-color: #5D1414;">Link</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">@urun.Fiyat TL</small>
+
+            </div>
+        </div>
+    }
+</div>

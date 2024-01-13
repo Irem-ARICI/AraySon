@@ -1,0 +1,66 @@
+﻿@model UrunEkleGuncelleViewModel
+
+<style>
+    body {
+        background-color: #FDE1E1;
+    }
+</style>
+
+<div class="card">
+    <div class="card-header">
+        Ürün güncelleme sayfası
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
+        {
+            @Html.HiddenFor(x => x.Urun.Id)
+            <div class="my-3">
+                <label class="form-label">Ad</label>
+
+                @Html.TextBoxFor(x => x.Urun.Ad, "", new { @class = "form-control", placeHolder = "Ürün adını giriniz" })
+
+            </div>
+
+            <div class="my-3">
+                <label class="form-label">Fiyat</label>
+
+                @Html.TextBoxFor(x => x.Urun.Fiyat, "", new { @class = "form-control", placeHolder = "Ürün fiyatını giriniz", type = "number" })
+
+            </div>
+
+            <div class="my-3">
+                <label class="form-label">Kategori</label>
+
+                @Html.DropDownListFor(x => x.Urun.KategoriId, new SelectList(Model.Kategoriler, "Id", "Ad"), new { @class = "form-control", })
+
+            </div>
+
+            <div class="my-3">
+                <label class="form-label">Ders</label>
+
+                @Html.DropDownListFor(x => x.Urun.DersId, new SelectList(Model.Dersler, "Id", "Ad"), new { @class = "form-control", })
+
+            </div>
+
+            <div class="my-3">
+                <label class="form-label">Image Url</label>
+
+                @Html.TextBoxFor(x => x.Urun.ImageUrl, "", new { @class = "form-control", placeHolder = "Ürün foroğraf Url giriniz" })
+                <small>https://picsum.photos/200</small>
+            </div>
+
+            <div class="my-3">
+                <label class="form-label">Link Url</label>
+
+                @Html.TextBoxFor(x => x.Urun.LinkUrl, "", new { @class = "form-control", placeHolder = "LinkUrl giriniz" })
+                <small>https://picsum.photos/200</small>
+            </div>
+
+            <button type="submit" class="btn btn-success my-3" style="background-color: #5D1414; color: white;">
+                Güncelle
+            </button>
+        }
+    </div>
+</div>
+
+

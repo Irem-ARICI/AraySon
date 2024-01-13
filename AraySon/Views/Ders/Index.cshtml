@@ -1,0 +1,60 @@
+﻿@addTagHelper *,AraySon
+
+@model List<Ders>
+
+<style>
+    body {
+        background-color: #FDE1E1;
+    }
+</style>
+
+@* 
+<div>
+@if (Model != null)
+{
+    <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Güncelle</button>
+}
+else
+{
+    <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Kitap Ekle</button>
+}
+
+<a asp-controller="Kitap" asp-action="Index" class="btn btn-lg btn-primary" style="width:250px">
+    Kitaplara Geri Dön
+</a>
+</div> *@
+<div class="card">
+    <div class="card-header">
+        Dersler
+    </div>
+    <div class="card-body">
+        <a asp-controller="Ders" asp-action="Ekle" class="btn btn-primary mb-3" style="background-color: #5D1414; color: white;">Yeni Ders Ekle</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Sıra No</th>
+                    <th>Tür</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].Ad</td>
+                        <td>
+                            <edit-button asp-controller="Ders" asp-action="Guncelle" asp-id="@Model[i].Id"></edit-button>
+                        </td>
+                        <td>
+                            <delete-button asp-controller="Ders" asp-action="Sil" asp-id="@Model[i].Id"></delete-button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<small>https://getbootstrap.com/docs/5.0/components/card/</small>

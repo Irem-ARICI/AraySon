@@ -1,0 +1,32 @@
+﻿@model CreateOrEditDersDto
+
+<style>
+    body {
+        background-color: #FDE1E1;
+    }
+</style>
+
+<div class="card">
+    <div class="card-header">
+        Ders ekleme sayfası
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Ekle", "Ders", FormMethod.Post))
+        {
+            <div class="my-3">
+                <label class="form-label" for="Ad">Ad</label>
+
+                @Html.TextBoxFor(x => x.Ad, "", new { @class = "form-control", placeHolder = "Ders adını giriniz" })
+
+            </div>
+
+            <button type="submit" class="btn btn-success my-3" style="background-color: #5D1414; color: white;">
+                Kaydet
+            </button>
+        }
+    </div>
+</div>
+
+
+
+

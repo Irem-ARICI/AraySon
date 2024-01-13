@@ -1,0 +1,39 @@
+﻿@model List<UrunDto>
+
+@Html.ActionLink("Yeni ürün ekle", "Ekle", "Urun", null, new { @class = "btn btn-primary my-3" })
+
+<div class="card">
+    <div class="card-header">
+        Ürünler
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Sıra No</th>
+                    <th>Ürün</th>
+                    <th>Kategori</th>
+                    <th>Ders</th>
+                    <th>Fiyat</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].Ad</td>
+                        <td>@Model[i].KategoriAdi</td>
+                        <td>@Model[i].DersAdi</td>
+                        <td>@Model[i].Fiyat</td>
+                        <td>@Html.ActionLink("Düzenle", "Guncelle", "Urun", new { id = Model[i].Id }, new { @class = "btn btn-warning" })</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<small>https://getbootstrap.com/docs/5.0/components/card/</small>
